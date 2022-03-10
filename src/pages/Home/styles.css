@@ -1,5 +1,21 @@
 .home-container{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #ECEAE4;
+    box-sizing: border-box;
+}
+
+.pokemon-trade-container {
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0;
+}
+
+.loading-indicator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    align-self: center;
 }
