@@ -1,45 +1,18 @@
-import axios from 'axios';
+
 import React, {useEffect, useState} from 'react';
 import NavBar from '../../components/Navbar';
-import pokeAPI from '../../services/pokeapi/api';
 import { Oval } from  'react-loader-spinner'
 import Select from 'react-select'
 import './styles.css';
+import { getOptions, getPokemons, handlePokemonSelection } from './controller';
 export default function HomePage(){
     const [pokemons, setPokemons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    
-    const getOptions = () => {
-        let optionsList= pokemons.map((pokemon) => {
-            return {value: pokemon.url, label: pokemon.name}
-        });
-        return optionsList;
-    }
+    const [selectedPokemons, setSelectedPokemons] = useState([]);
 
-    const getPokemons = async () => {
-        try{
-            let response = await pokeAPI.get('pokemon');
-            let data = response.data;
-            let pokemonList = [...data.results];
-            while(data.next != null){
-                response = await axios.get(data.next);
-                data = response.data;
-                pokemonList.push(...data.results);
-                
-            }
-            setPokemons(pokemonList);
-        }catch(error){
-            if(axios.isAxiosError(error)){
-                if(error.response?.status==404){
-                    alert("Aparentemente os dados não existem tente novamente mais tarde");
-                }
-            }
-        }
-        setIsLoading(false);
-    }
 
     useEffect(()=>{
-        getPokemons();
+        getPokemons(setPokemons, setIsLoading);
     }, []);
 
     return(
@@ -54,11 +27,14 @@ export default function HomePage(){
                             width="100"
                             color='grey'
                             ariaLabel='loading'
-                            />
+                            noOptionsMessage/>
                     </div>
                     :
-                    <Select options={getOptions()} isMulti noOptionsMessage="Selecione os pokémons do treinador" />
+                    <Select options={getOptions(pokemons)} isMulti onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemons, setSelectedPokemons)}/>
                 }
+                {selectedPokemons.map((pokemon)=>(
+                    <img src={pokemon.sprites.front_default} key={pokemon.name}/>
+                ))}
             </section>
         </div>
     )
