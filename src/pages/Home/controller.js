@@ -19,13 +19,15 @@ export const handlePokemonSelection= async (newSelectedPokemons, currentSelected
     }
     else{
         let removedPokemonIndex;
-        for(let i=0; i<currentSelectedPokemons.length; i++){
-            if(newSelectedPokemons.filter(newPokemon => newPokemon.name == currentSelectedPokemons[i].name).length == 0){
+        let currentPokemonList = [...currentSelectedPokemons];
+        for(let i=0; i<currentPokemonList.length; i++){
+            if(newSelectedPokemons.filter(newPokemon => newPokemon.label == currentPokemonList[i].name).length == 0){
                 removedPokemonIndex = i;
                 break;
             }
         }
-        setSelectedPokemons(currentSelectedPokemons.splice(removedPokemonIndex, 1));
+        currentPokemonList.splice(removedPokemonIndex, 1);
+        setSelectedPokemons(currentPokemonList);
     }
 }
 
