@@ -3,10 +3,19 @@ import React, {useEffect, useState} from 'react';
 import NavBar from '../../components/Navbar';
 import pokeAPI from '../../services/pokeapi/api';
 import { Oval } from  'react-loader-spinner'
+import Select from 'react-select'
 import './styles.css';
 export default function HomePage(){
     const [pokemons, setPokemons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    
+    const getOptions = () => {
+        let optionsList= pokemons.map((pokemon) => {
+            return {value: pokemon.url, label: pokemon.name}
+        });
+        return optionsList;
+    }
+
     const getPokemons = async () => {
         try{
             let response = await pokeAPI.get('pokemon');
@@ -28,9 +37,11 @@ export default function HomePage(){
         }
         setIsLoading(false);
     }
+
     useEffect(()=>{
         getPokemons();
     }, []);
+
     return(
         <div className="home-container">
             <NavBar/>
@@ -46,10 +57,8 @@ export default function HomePage(){
                             />
                     </div>
                     :
-                    pokemons.map((pokemon, index) => (
-                        <p key={index}>{pokemon.name}</p>
-                        ))
-                    }
+                    <Select options={getOptions()} isMulti noOptionsMessage="Selecione os pokémons do treinador" />
+                }
             </section>
         </div>
     )
