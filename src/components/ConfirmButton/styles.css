@@ -1,0 +1,18 @@
+.confirm-trade-button{
+    width: 10vw;
+    height: 5vh;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #A8E1DF;
+    border-radius: 1vw;
+    color: #3E6A85;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.confirm-trade-button:hover{
+    background-color: #3E6A85;
+    color: #A8E1DF;
+    transition: 0.3s;
+}

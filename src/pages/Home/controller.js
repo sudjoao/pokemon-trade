@@ -60,3 +60,16 @@ export const getPokemonsPower = (pokemonList) => {
     });
     return pokemonsPower;
 }
+
+export const handleConfirmTrade = (pokemonListUser1, pokemonListUser2) => {
+    if(pokemonListUser1.length && pokemonListUser2.length){
+        if(Math.abs(getPokemonsPower(pokemonListUser1) - getPokemonsPower(pokemonListUser2)) < 100){
+            window.location.reload();
+            alert("Troca Realizada com sucesso");
+        }else{
+            alert("Diferença entre poderes muito grande, tente balancear a troca");
+        }
+    }else{
+        alert("Para fazer a troca é necessário escolher pelo menos 1 pokémon de cada lado");
+    }
+}
