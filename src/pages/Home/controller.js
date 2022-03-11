@@ -52,3 +52,11 @@ export const getPokemons = async (setPokemons, setIsLoading) => {
     }
     setIsLoading(false);
 }
+
+export const getPokemonsPower = (pokemonList) => {
+    let pokemonsPower = 0;
+    pokemonList.forEach(pokemon=>{
+        pokemonsPower+=pokemon.base_experience;
+    });
+    return pokemonsPower;
+}

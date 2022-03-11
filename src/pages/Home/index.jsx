@@ -1,14 +1,15 @@
 
 import React, {useEffect, useState} from 'react';
 import NavBar from '../../components/Navbar';
-import { Oval } from  'react-loader-spinner'
-import Select from 'react-select'
+import { Oval } from  'react-loader-spinner';
 import './styles.css';
-import { getOptions, getPokemons, handlePokemonSelection } from './controller';
+import { getOptions, getPokemons, getPokemonsPower, handlePokemonSelection } from './controller';
+import SelectPokemonComponent from '../../components/SelectPokemon';
 export default function HomePage(){
     const [pokemons, setPokemons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [selectedPokemons, setSelectedPokemons] = useState([]);
+    const [selectedPokemonsTrainer1, setSelectedPokemonsTrainer1] = useState([]);
+    const [selectedPokemonsTrainer2, setSelectedPokemonsTrainer2] = useState([]);
 
 
     useEffect(()=>{
@@ -30,11 +31,12 @@ export default function HomePage(){
                             noOptionsMessage/>
                     </div>
                     :
-                    <Select options={getOptions(pokemons)} isMulti onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemons, setSelectedPokemons)}/>
+                        <div className="trainers-trade-area">
+                            <SelectPokemonComponent options={getOptions(pokemons)} onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer1, setSelectedPokemonsTrainer1)} selectedPokemons={selectedPokemonsTrainer1} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)}/>
+                            <SelectPokemonComponent options={getOptions(pokemons)} onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer2, setSelectedPokemonsTrainer2)} selectedPokemons={selectedPokemonsTrainer2} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)}/>
+                        </div>
+            
                 }
-                {selectedPokemons.map((pokemon)=>(
-                    <img src={pokemon.sprites.front_default} key={pokemon.name}/>
-                ))}
             </section>
         </div>
     )

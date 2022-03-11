@@ -1,0 +1,20 @@
+.select-pokemon-container{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-dropdown{
+    width: 30vw;
+}
+
+.selected-pokemon{
+    margin: 2rem;
+}
+
+.selected-pokemon-list{
+    display: flex;
+    flex-wrap: wrap;
+}

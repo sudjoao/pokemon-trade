@@ -19,3 +19,9 @@
     width: 100vw;
     align-self: center;
 }
+
+.trainers-trade-area{
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+}
