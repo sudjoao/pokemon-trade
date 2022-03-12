@@ -4,11 +4,15 @@ import "./styles.css";
 export default function SelectPokemonComponent({options, onChange, selectedPokemons, selectedPokemonPower}){
     return(
         <div className="select-pokemon-container">
-            <Select className="select-dropdown" options={options} isMulti onChange={onChange}/>
+            <Select 
+                className="select-dropdown" 
+                options={selectedPokemons.length ==6? [] : options}  
+                onChange={onChange} 
+                noOptionsMessage={()=> "Número max de pokemons atingido"}/>
             <div className="selected-pokemon-list">
-                {selectedPokemons.map((pokemon)=>(
-                    <div className="selected-pokemon" key={pokemon.name}>
-                        <img src={pokemon.sprites.front_default} key={pokemon.name} className="pokemon-img"/>
+                {selectedPokemons.map((pokemon, index)=>(
+                    <div className="selected-pokemon" key={index}>
+                        <img src={pokemon.sprites.front_default} key={index} className="pokemon-img"/>
                         <p className="pokemon-name">{pokemon.name}</p>
                     </div>
                 ))}

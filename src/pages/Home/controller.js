@@ -8,27 +8,9 @@ export const getOptions = (pokemons) => {
     return optionsList;
 }
 
-export const handlePokemonSelection= async (newSelectedPokemons, currentSelectedPokemons, setSelectedPokemons) => {
-    if(newSelectedPokemons.length > currentSelectedPokemons.length){
-        const response = await axios.get(newSelectedPokemons[newSelectedPokemons.length-1].value);
+export const handlePokemonSelection= async (selectedPokemon, currentSelectedPokemons, setSelectedPokemons) => {
+        const response = await axios.get(selectedPokemon.value);
         setSelectedPokemons([...currentSelectedPokemons, response.data]);
-    }
-    else if(newSelectedPokemons.length == 0){
-        console.log(currentSelectedPokemons.length);
-        setSelectedPokemons([]);
-    }
-    else{
-        let removedPokemonIndex;
-        let currentPokemonList = [...currentSelectedPokemons];
-        for(let i=0; i<currentPokemonList.length; i++){
-            if(newSelectedPokemons.filter(newPokemon => newPokemon.label == currentPokemonList[i].name).length == 0){
-                removedPokemonIndex = i;
-                break;
-            }
-        }
-        currentPokemonList.splice(removedPokemonIndex, 1);
-        setSelectedPokemons(currentPokemonList);
-    }
 }
 
 export const getPokemons = async (setPokemons, setIsLoading) => {
