@@ -12,10 +12,10 @@ export default function SelectPokemonComponent({options, onChange, selectedPokem
             <div className="selected-pokemon-list">
                 {selectedPokemons.map((pokemon, index)=>(
                     <div className="selected-pokemon" key={index}>
-                        <span class="material-icons trash" onClick={()=>deletePokemon(index)}>
+                        <span className="material-icons trash" onClick={()=>deletePokemon(index)}>
                             delete
                         </span>
-                        <img src={pokemon.sprites.front_default} key={index} className="pokemon-img"/>
+                        <img src={pokemon.image} key={index} className="pokemon-img"/>
                         <p className="pokemon-name">{pokemon.name}</p>
                     </div>
                 ))}
