@@ -11,10 +11,18 @@
 }
 
 .selected-pokemon{
+    position: relative;
     margin: 2rem;
 }
 
 .selected-pokemon-list{
     display: flex;
     flex-wrap: wrap;
+}
+
+.trash {
+    position: absolute;
+    right:0;
+    color: #3E6A85;
+    cursor: pointer;
 }

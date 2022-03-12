@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import NavBar from '../../components/Navbar';
 import { Oval } from  'react-loader-spinner';
 import './styles.css';
-import { getOptions, getPokemons, getPokemonsPower, handleConfirmTrade, handlePokemonSelection } from './controller';
+import { getOptions, getPokemons, getPokemonsPower, handleConfirmTrade, handlePokemonSelection, handleRemovePokemon } from './controller';
 import SelectPokemonComponent from '../../components/SelectPokemon';
 import ConfirmButton from '../../components/ConfirmButton';
 export default function HomePage(){
@@ -34,8 +34,18 @@ export default function HomePage(){
                     :
                     <>
                         <div className="trainers-trade-area">
-                            <SelectPokemonComponent options={getOptions(pokemons)} onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer1, setSelectedPokemonsTrainer1)} selectedPokemons={selectedPokemonsTrainer1} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)}/>
-                            <SelectPokemonComponent options={getOptions(pokemons)} onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer2, setSelectedPokemonsTrainer2)} selectedPokemons={selectedPokemonsTrainer2} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)}/>
+                            <SelectPokemonComponent 
+                                options={getOptions(pokemons)} 
+                                onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer1, setSelectedPokemonsTrainer1)} 
+                                selectedPokemons={selectedPokemonsTrainer1} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)} 
+                                deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer1, setSelectedPokemonsTrainer1, index)}
+                            />
+                            <SelectPokemonComponent 
+                                options={getOptions(pokemons)}
+                                onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer2, setSelectedPokemonsTrainer2)}
+                                selectedPokemons={selectedPokemonsTrainer2} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)} 
+                                deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer2, setSelectedPokemonsTrainer2, index)}
+                            />
                         </div>
                         <ConfirmButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)}/>
                     </>

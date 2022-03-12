@@ -13,6 +13,12 @@ export const handlePokemonSelection= async (selectedPokemon, currentSelectedPoke
         setSelectedPokemons([...currentSelectedPokemons, response.data]);
 }
 
+export const handleRemovePokemon = (pokemonList, setPokemonList, removedPokemonIndex) => {
+    let currentPokemonList = [...pokemonList];
+    currentPokemonList.splice(removedPokemonIndex, 1);
+    setPokemonList(currentPokemonList);
+}
+
 export const getPokemons = async (setPokemons, setIsLoading) => {
     try{
         let response = await pokeAPI.get('pokemon');
