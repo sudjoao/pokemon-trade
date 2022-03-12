@@ -1,0 +1,25 @@
+.history-container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #ECEAE4;
+    box-sizing: border-box;
+}
+
+.history-data{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.trade-info-container{
+    display: flex;
+    align-items: center;
+}
+
+.trade-pokemons-container{
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

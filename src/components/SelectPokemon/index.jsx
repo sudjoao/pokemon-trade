@@ -1,5 +1,6 @@
 import React from "react";
 import Select from 'react-select';
+import PokemonCard from "../PokemonCard";
 import "./styles.css";
 export default function SelectPokemonComponent({options, onChange, selectedPokemons, selectedPokemonPower, deletePokemon}){
     return(
@@ -11,13 +12,7 @@ export default function SelectPokemonComponent({options, onChange, selectedPokem
                 noOptionsMessage={()=> "Número max de pokemons atingido"}/>
             <div className="selected-pokemon-list">
                 {selectedPokemons.map((pokemon, index)=>(
-                    <div className="selected-pokemon" key={index}>
-                        <span className="material-icons trash" onClick={()=>deletePokemon(index)}>
-                            delete
-                        </span>
-                        <img src={pokemon.image} key={index} className="pokemon-img"/>
-                        <p className="pokemon-name">{pokemon.name}</p>
-                    </div>
+                    <PokemonCard pokemon={pokemon} deletePokemon={deletePokemon} id={index} key={index}/>
                 ))}
             </div>
             <p>{selectedPokemonPower}</p>
