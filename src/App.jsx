@@ -6,11 +6,11 @@ import HomePage from './pages/Home';
 
 export default function App(){
     return (
-        <div className="App">
-      <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/history' element={<HistoryPage/>}/>
-      </Routes>
+      <div className="App">
+        <Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/history' element={<HistoryPage/>}/>
+        </Routes>
       </div>
     );
 }
