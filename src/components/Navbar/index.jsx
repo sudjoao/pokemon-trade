@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import {ReactComponent as Pokeball} from '../../assets/pokeball.svg';
+import { Link } from 'react-router-dom';
 export default function NavBar(){
     return(
         <nav className='navbar'>
@@ -9,8 +10,8 @@ export default function NavBar(){
                 <p className='nav-title'>PokéTrade</p>
             </div>
             <div className='links'>
-                <a href='' className='link'>Área de Troca</a>
-                <a href='' className='link'>Histórico</a>
+                <Link to='/' className='link'>Área de Troca</Link>
+                <Link to='/history' className='link'>Histórico</Link>
             </div>
         </nav>
     )
