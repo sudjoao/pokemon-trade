@@ -25,3 +25,15 @@
     align-items: flex-start;
     padding: 2rem 0;
 }
+
+.rules-book{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    justify-content: flex-start;
+}
+
+.rules-book ol{
+    text-align: start;
+}

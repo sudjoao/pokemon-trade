@@ -20,6 +20,7 @@ export default function HomePage(){
     return(
         <div className="home-container">
             <NavBar/>
+            <p>Bem vindo ao PokéTrade, aqui você pode simular troca de pokémons entre 2 jogadores e saber se a mesma é justa ou não</p>
             <section className='pokemon-trade-container'>
                 {
                     isLoading?
@@ -39,12 +40,14 @@ export default function HomePage(){
                                 onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer1, setSelectedPokemonsTrainer1)} 
                                 selectedPokemons={selectedPokemonsTrainer1} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)} 
                                 deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer1, setSelectedPokemonsTrainer1, index)}
+                                playerId={1}
                             />
                             <SelectPokemonComponent 
                                 options={getOptions(pokemons)}
                                 onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer2, setSelectedPokemonsTrainer2)}
                                 selectedPokemons={selectedPokemonsTrainer2} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)} 
                                 deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer2, setSelectedPokemonsTrainer2, index)}
+                                playerId={2}
                             />
                         </div>
                         <ConfirmButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)}/>
@@ -52,6 +55,17 @@ export default function HomePage(){
             
                 }
             </section>
+            <div className='rules-book'>
+                <h2>Regras e Informações</h2>
+                <p>Para que você consiga realizar uma troca é necessário:</p>
+                <ol>
+                    <li>Ter no mínimo 1 pokémon de cada lado e no máximo 6</li>
+                    <li>A diferença de poderes entre os pokémons trocados, indicada abaixo dos pokémons, não pode ultrapassar 100</li>
+                    <li>Você pode selecionar mais de um mesmo pokémon na troca</li>
+                    <li>Caso a troca seja válida a mesma constará na página histórico posteriormente.</li>
+                </ol>
+            </div>
         </div>
+        
     )
 }
