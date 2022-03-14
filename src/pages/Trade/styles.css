@@ -1,0 +1,40 @@
+.trade-container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #D7DEF1;
+    box-sizing: border-box;
+}
+
+.pokemon-trade-container {
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    margin: 0;
+    min-height: 50vh;
+}
+
+.loading-indicator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    align-self: center;
+}
+
+.trainers-trade-area{
+    display: flex;
+    align-items: flex-start;
+    padding: 2rem 0;
+}
+
+.rules-book{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    justify-content: flex-start;
+}
+
+.rules-book ol{
+    text-align: start;
+}

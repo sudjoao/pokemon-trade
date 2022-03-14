@@ -1,7 +1,7 @@
 .history-container{
     width: 100vw;
     min-height: 100vh;
-    background-color: #ECEAE4;
+    background-color: #D7DEF1;
     box-sizing: border-box;
 }
 
@@ -22,4 +22,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
