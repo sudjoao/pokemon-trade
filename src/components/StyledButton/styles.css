@@ -1,10 +1,9 @@
 .styled-button{
-    width: 10vw;
-    height: 5vh;
+    padding: 1.5rem;
     border-width: 1px;
     border-style: solid;
     background-color: #B1CFEB;
-    border-radius: 1vw;
+    border-radius: 2vw;
     color: #3E6A85;
     font-weight: bold;
     font-size: 1.3rem;
@@ -13,18 +12,19 @@
     margin: 1rem;
 }
 
-.styled-button:hover{
-    background-color:rgba(177, 207, 235, 0.5);
-    font-size: 1.5rem;
-    transition: 0.3s;
-    border-color: rgba(0, 0, 0, 0.1);
+@media only screen and (min-device-width: 768px){
+    .styled-button:hover{
+        background-color:rgba(177, 207, 235, 0.5);
+        font-size: 1.5rem;
+        transition: 0.3s;
+        border-color: rgba(0, 0, 0, 0.1);
+    }
 }
 
 @media only screen and (max-device-width : 480px) {
     .styled-button{
-        width: 50vw;
-        height: 8vh;
-        border-radius: 5vw;
+        border-radius: 6vw;
         font-size: 1.5rem;
+        padding: 0.8rem;
     }
 }
