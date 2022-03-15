@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import NavBar from '../../components/Navbar';
 import { Oval } from  'react-loader-spinner';
 import './styles.css';
-import { getOptions, getPokemons, getPokemonsPower, handleConfirmTrade, handlePokemonSelection, handleRemovePokemon } from './controller';
+import { getOptions, getPokemons, getPokemonsPower, getPowerDifferece, handleConfirmTrade, handlePokemonSelection, handleRemovePokemon } from './controller';
 import SelectPokemonComponent from '../../components/SelectPokemon';
 import StyledButton from '../../components/StyledButton';
 export default function TradePage(){
@@ -61,7 +61,7 @@ export default function TradePage(){
                                 playerId={2}
                             />
                         </div>
-                        <p>Diferença de poder atual: {Math.abs(getPokemonsPower(selectedPokemonsTrainer1)-getPokemonsPower(selectedPokemonsTrainer2))}</p>
+                        <p>Diferença de poder atual: {getPowerDifferece(selectedPokemonsTrainer1, selectedPokemonsTrainer2)}</p>
                         <StyledButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)} label='Confirmar'/>
                     </>
             

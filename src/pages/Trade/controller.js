@@ -50,11 +50,16 @@ export const getPokemonsPower = (pokemonList) => {
     return pokemonsPower;
 }
 
+export const getPowerDifferece = (pokemonList1, pokemonList2) => {
+    return Math.abs(getPokemonsPower(pokemonList1) - getPokemonsPower(pokemonList2));    
+}
+
 export const handleConfirmTrade = (pokemonListUser1, pokemonListUser2) => {
     if(pokemonListUser1.length && pokemonListUser2.length){
         let historyOldData = localStorage.getItem('history');
-        if(Math.abs(getPokemonsPower(pokemonListUser1) - getPokemonsPower(pokemonListUser2)) < 100){
-            const newTradeData = {pokemonListUser1, pokemonListUser2, powerDifference: Math.abs(getPokemonsPower(pokemonListUser1) - getPokemonsPower(pokemonListUser2))};
+        let powerDifference = getPowerDifferece(pokemonListUser1, pokemonListUser2);
+        if(powerDifference < 100){
+            const newTradeData = {pokemonListUser1, pokemonListUser2, powerDifference};
             if(historyOldData != null){
                 localStorage.setItem('history', JSON.stringify([newTradeData, ...JSON.parse(historyOldData)]));
             }
