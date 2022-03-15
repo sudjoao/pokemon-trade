@@ -21,7 +21,6 @@ export default function HistoryPage(){
                         <div key={index} className='single-history-data'>
                             <h2>Troca {history.length  - index}</h2>
                             <div className="trade-info-container">
-                                {console.log(tradeData)}
                                 <div className="trade-pokemons-container">
                                     {tradeData.pokemonListUser1.map((pokemon, id)=>(
                                     <PokemonCard pokemon={pokemon} showDeleteButton={false} key={id}/>
