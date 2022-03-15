@@ -19,8 +19,9 @@ export default function HistoryPage(){
                 {history.length > 0 ? 
                     history.map((tradeData, index)=>(
                         <div key={index} className='single-history-data'>
-                            <h2>Troca {index+1}</h2>
+                            <h2>Troca {history.length  - index}</h2>
                             <div className="trade-info-container">
+                                {console.log(tradeData)}
                                 <div className="trade-pokemons-container">
                                     {tradeData.pokemonListUser1.map((pokemon, id)=>(
                                     <PokemonCard pokemon={pokemon} showDeleteButton={false} key={id}/>
@@ -33,6 +34,7 @@ export default function HistoryPage(){
                                 ))}
                                 </div>
                             </div>
+                            <p>Diferença de poder: {tradeData.powerDifference}</p>
                         </div>
                 )) :
                 <p>Nenhuma troca realizada.</p>

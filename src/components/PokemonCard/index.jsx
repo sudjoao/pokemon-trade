@@ -15,6 +15,7 @@ export default function PokemonCard({pokemon, deletePokemon, id, showDeleteButto
             }
             <img src={pokemon.image} className="pokemon-img"/>
             <p className="pokemon-name">{firstLetterUpperCase(pokemon.name)}</p>
+            <p>Poder: {pokemon.base_experience}</p>
         </div>
     );
 }

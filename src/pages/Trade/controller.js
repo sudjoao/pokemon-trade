@@ -52,13 +52,14 @@ export const getPokemonsPower = (pokemonList) => {
 
 export const handleConfirmTrade = (pokemonListUser1, pokemonListUser2) => {
     if(pokemonListUser1.length && pokemonListUser2.length){
+        let historyOldData = localStorage.getItem('history');
         if(Math.abs(getPokemonsPower(pokemonListUser1) - getPokemonsPower(pokemonListUser2)) < 100){
-            let historyOldData = localStorage.getItem('history');
+            const newTradeData = {pokemonListUser1, pokemonListUser2, powerDifference: Math.abs(getPokemonsPower(pokemonListUser1) - getPokemonsPower(pokemonListUser2))};
             if(historyOldData != null){
-                localStorage.setItem('history', JSON.stringify([...JSON.parse(historyOldData), {pokemonListUser1, pokemonListUser2}]));
+                localStorage.setItem('history', JSON.stringify([newTradeData, ...JSON.parse(historyOldData)]));
             }
             else{
-                localStorage.setItem('history', JSON.stringify([{pokemonListUser1, pokemonListUser2}]));
+                localStorage.setItem('history', JSON.stringify([newTradeData]));
             }
             window.location.reload();
             alert("Troca Realizada com sucesso");

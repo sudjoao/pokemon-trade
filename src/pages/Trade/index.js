@@ -47,18 +47,21 @@ export default function TradePage(){
                             <SelectPokemonComponent 
                                 options={getOptions(pokemons)} 
                                 onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer1, setSelectedPokemonsTrainer1)} 
-                                selectedPokemons={selectedPokemonsTrainer1} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)} 
+                                selectedPokemons={selectedPokemonsTrainer1} 
+                                selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer1)} 
                                 deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer1, setSelectedPokemonsTrainer1, index)}
                                 playerId={1}
                             />
                             <SelectPokemonComponent 
                                 options={getOptions(pokemons)}
                                 onChange={(newValue)=>handlePokemonSelection(newValue, selectedPokemonsTrainer2, setSelectedPokemonsTrainer2)}
-                                selectedPokemons={selectedPokemonsTrainer2} selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)} 
+                                selectedPokemons={selectedPokemonsTrainer2} 
+                                selectedPokemonPower={getPokemonsPower(selectedPokemonsTrainer2)} 
                                 deletePokemon={(index)=>handleRemovePokemon(selectedPokemonsTrainer2, setSelectedPokemonsTrainer2, index)}
                                 playerId={2}
                             />
                         </div>
+                        <p>Diferença de poder atual: {Math.abs(getPokemonsPower(selectedPokemonsTrainer1)-getPokemonsPower(selectedPokemonsTrainer2))}</p>
                         <StyledButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)} label='Confirmar'/>
                     </>
             
