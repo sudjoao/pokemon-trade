@@ -1,4 +1,5 @@
 import React from "react";
+import { firstLetterUpperCase } from "./controller";
 
 import "./styles.css";
 
@@ -13,7 +14,7 @@ export default function PokemonCard({pokemon, deletePokemon, id, showDeleteButto
                 </>
             }
             <img src={pokemon.image} className="pokemon-img"/>
-            <p className="pokemon-name">{pokemon.name}</p>
+            <p className="pokemon-name">{firstLetterUpperCase(pokemon.name)}</p>
         </div>
     );
 }

@@ -1,18 +1,21 @@
-.confirm-trade-button{
+.styled-button{
     width: 10vw;
     height: 5vh;
     border-width: 1px;
     border-style: solid;
-    background-color: #A8E1DF;
+    background-color: #B1CFEB;
     border-radius: 1vw;
     color: #3E6A85;
     font-weight: bold;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: 0.3s;
+    margin: 1rem;
 }
 
-.confirm-trade-button:hover{
-    background-color: #3E6A85;
-    color: #A8E1DF;
+.styled-button:hover{
+    background-color:rgba(177, 207, 235, 0.5);
+    font-size: 1.5rem;
     transition: 0.3s;
+    border-color: rgba(0, 0, 0, 0.1);
 }

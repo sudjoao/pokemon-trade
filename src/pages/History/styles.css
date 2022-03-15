@@ -12,9 +12,22 @@
     justify-content: center;
 }
 
+.single-history-data{
+    border-style: solid;
+    border-radius: 1rem;
+    border-width: 0.5px;
+    border-color: rgba(0,0,0, 0.2);
+    margin: 0.5rem;
+    background-color:rgba(177, 207, 235, 0.2);
+}
+
 .trade-info-container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.trade-info-container h2{
+    align-self: center;
 }
 
 .trade-pokemons-container{

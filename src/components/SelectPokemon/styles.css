@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.select-pokemon-container p{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
 .select-dropdown{
     width: 30vw;
 }
@@ -17,6 +23,9 @@
 
 .selected-pokemon-list{
     display: flex;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 

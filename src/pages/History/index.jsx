@@ -18,7 +18,7 @@ export default function HistoryPage(){
             <section className="history-data">
                 {history.length > 0 ? 
                     history.map((tradeData, index)=>(
-                        <div key={index}>
+                        <div key={index} className='single-history-data'>
                             <h2>Troca {index+1}</h2>
                             <div className="trade-info-container">
                                 <div className="trade-pokemons-container">

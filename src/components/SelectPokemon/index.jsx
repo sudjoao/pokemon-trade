@@ -6,6 +6,7 @@ export default function SelectPokemonComponent({options, onChange, selectedPokem
     return(
         <div className="select-pokemon-container">
             <p>Jogador {playerId}</p>
+            <p>Poder atual: {selectedPokemonPower}</p>
             <Select 
                 className="select-dropdown" 
                 options={selectedPokemons.length ==6? [] : options}  
@@ -18,7 +19,6 @@ export default function SelectPokemonComponent({options, onChange, selectedPokem
                     <PokemonCard pokemon={pokemon} deletePokemon={deletePokemon} id={index} key={index} />
                 ))}
             </div>
-            <p>{selectedPokemonPower}</p>
         </div>
     )
 }

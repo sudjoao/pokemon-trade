@@ -5,7 +5,7 @@ import { Oval } from  'react-loader-spinner';
 import './styles.css';
 import { getOptions, getPokemons, getPokemonsPower, handleConfirmTrade, handlePokemonSelection, handleRemovePokemon } from './controller';
 import SelectPokemonComponent from '../../components/SelectPokemon';
-import ConfirmButton from '../../components/ConfirmButton';
+import StyledButton from '../../components/StyledButton';
 export default function TradePage(){
     const [pokemons, setPokemons] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +59,7 @@ export default function TradePage(){
                                 playerId={2}
                             />
                         </div>
-                        <ConfirmButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)}/>
+                        <StyledButton onClick={()=>handleConfirmTrade(selectedPokemonsTrainer1, selectedPokemonsTrainer2)} label='Confirmar'/>
                     </>
             
                 }

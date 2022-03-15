@@ -8,6 +8,11 @@
     flex-wrap: wrap;
 }
 
+.pokemon-name{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 .trash {
     position: absolute;
     right:0;
