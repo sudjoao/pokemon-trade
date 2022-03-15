@@ -38,3 +38,17 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+
+@media only screen and (max-device-width : 800px) {
+    .trade-pokemons-container{
+        width: 90vw;
+        display: flex;
+    }
+    .trade-info-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
