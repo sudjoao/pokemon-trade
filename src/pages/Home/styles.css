@@ -22,3 +22,9 @@
 .home-content img{
     width: 15vw;
 }
+
+@media only screen and (max-device-width : 480px) {
+    .home-content img{
+        width: 60vw;
+    }   
+}

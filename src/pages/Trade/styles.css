@@ -38,3 +38,10 @@
     text-align: start;
     margin: 0;
 }
+
+@media only screen and (max-device-width : 480px) {
+    .rules-book p{
+        text-align: left;
+        font-size: 1rem;
+    }
+}

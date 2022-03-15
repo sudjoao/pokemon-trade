@@ -35,3 +35,12 @@
     color: #3E6A85;
     cursor: pointer;
 }
+
+@media only screen and (max-device-width : 480px) {
+    .select-pokemon-container p{
+        font-size: 1rem;
+    }
+    .select-dropdown{
+        width: 40vw;
+    }
+}

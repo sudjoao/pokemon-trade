@@ -42,3 +42,15 @@
     padding: 0 1.8rem;
 
 }
+
+@media only screen and (max-device-width : 480px) {
+    .nav-title{
+        font-size: 0.7rem;
+    }
+    .link{
+        font-size: 0.9rem;
+        display: flex;
+        padding: 0;
+        margin: 0.5rem;
+    }
+}
